@@ -1,0 +1,14 @@
+#config spring-data-redis info
+spring:
+  data:
+    redis:
+      host: 192.168.86.127
+      port: 6379
+      password: 123456
+      lettuce:
+        pool:
+          max-active: 8
+          #idel 空闲
+          max-idle: 8
+          min-idle: 0
+          max-wait: 100ms

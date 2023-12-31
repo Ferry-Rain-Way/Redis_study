@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.jedis.demo</groupId>
+  <artifactId>lesson01-jedis-demo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>lesson01-jedis-demo</name>
+  <url>https://maven.apache.org</url>
+
+  <properties>
+      <maven.compiler.target>17</maven.compiler.target>
+      <maven.compiler.source>17</maven.compiler.source>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!--单元测试-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!--Jedis-->
+      <dependency>
+          <groupId>redis.clients</groupId>
+          <artifactId>jedis</artifactId>
+          <version>3.7.0</version>
+      </dependency>
+    <!--SLF4J-->
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.8.0-beta0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.8.0-beta0</version>
+    </dependency>
+  </dependencies>
+</project>
+
+<!--
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+
+报错原因是SLF4J本身是一个接口，并不是真的日志实现库，需要依赖具体的实现才能正常运行，因此其必须和其他日志配合才可正常运行。
+如果没有实现层，SLF4J会使用一个空类（no-operation (NOP) logger）来完成，就不会记录log信息，
+需要将例如slf4j-api-xx.jar）+中间层（例如slf4j-log4j12）+实现层（例如log4j）这三层都配置好才能保证SLF4J正常运行。
+本配置文件使用的是SLF4J 与他的简单实现slf4j-simple
+-->
